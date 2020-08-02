@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:watch": "docker-compose -f Docker/dev/docker-compose.yml up",
+    "start:watch:build": "docker-compose -f Docker/dev/docker-compose.yml up --build",
     "eslint": "eslint --ext '.js,.jsx,.ts,.tsx' .",
     "eslint:fix": "eslint --fix . --ext '.js,.jsx,.ts,.tsx' ."
   },
@@ -27,7 +28,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.5",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.9.7"
   },
   "dependencies": {}
 }

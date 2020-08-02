@@ -1,8 +1,11 @@
 import express from 'express'
 import cors from 'cors'
+import connectDB from './config/db'
 
 const app = express()
 const port = 8999
+
+connectDB()
 
 // middleware
 app.use(express.json()) // to accept body data
