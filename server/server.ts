@@ -2,16 +2,47 @@ import express from 'express'
 import cors from 'cors'
 import connectDB from './config/db'
 import { ApolloServer, gql } from 'apollo-server-express'
+import { City } from './models'
 
 const typeDefs = gql`
+  type City {
+      id: ID!
+      name: String!
+      country: String!
+      mainImageLink: String
+      popularity: Int
+  }
+  
   type Query {
-      hello: String
+      getCities: [City]
+  }
+  
+  type Mutation {
+      addCity(
+          name: String!
+          country: String!
+          mainImageLink: String
+          popularity: Int
+      ): City
   }
 `
 
 const resolvers = {
   Query: {
-    hello: () => 'Hello World!'
+    getCities: async () => await City.find({}).exec()
+  },
+  Mutation: {
+    addCity: async (_, args: any) => {
+      try {
+        const popularity = args.popularity || 0
+        return await City.create({
+          ...args,
+          popularity
+        })
+      } catch (err) {
+        console.error(err)
+      }
+    }
   }
 }
 
