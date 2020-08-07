@@ -1,0 +1,59 @@
+1) City
+- name: string
+- popularity: number
+- mainImageLink: string
+
+2) Neighbourhood
+- name: string
+- city: City
+
+3) Flat
+- address: string; required
+- squareMeters: number; required
+- priceCZK: number; required
+- pricePerMeter: number; required
+- dispositions: string
+- link: string
+- mainImage: string
+- floor: number
+- elevator: boolean
+- agency: string
+- contact: string
+- ownershipType: enum (co-op, personal)
+- monthlyExpensesAssociation: number
+- monthlyExpensesOther: number
+- parking: boolean
+- balcony: boolean
+- garden: boolean
+- heating: string
+- notes: string
+- neighbourhood: Neighbourhood
+- city: City
+- created: date
+
+4) Rent
+- address: string; required
+- squareMeters: number; required
+- rentCZK: number; required
+- rentPerMeter: number; required
+- dispositions: string
+- link: string
+- neighbourhood: Neighbourhood
+- city: City
+- created: date
+
+5) User
+- email: string
+- password: string
+- name: string
+- isAdmin: boolean
+- created: date
+- favoriteFlats: [Flat]
+
+6) RealEstateWebsite
+- name: string
+
+7) RealEstateLink
+- link: string
+- scraped: boolean
+- realEstateWebsite: RealEstateWebsite
