@@ -25,4 +25,6 @@ export interface Flat extends Document {
   mortgaged?: boolean
   notes?: string
   neighbourhood?: Neighbourhood
+  created?: string
+  updated?: string
 }

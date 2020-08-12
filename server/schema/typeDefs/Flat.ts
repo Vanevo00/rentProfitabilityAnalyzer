@@ -33,6 +33,8 @@ export default gql`
         notes: String
         neighbourhood: Neighbourhood
         city: City
+        created: String
+        updated: String
     }
 
     extend type Query {
