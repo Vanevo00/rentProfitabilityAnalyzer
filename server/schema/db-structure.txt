@@ -12,12 +12,16 @@
 - squareMeters: number; required
 - priceCZK: number; required
 - pricePerMeter: number; required
-- nearbyPurchasePricesPerMeter: []
+- nearbyPurchases: {
+    address: string
+    squareMeters: string
+    pricePerMeter: number
+  }[]
 - dispositions: string
 - link: string
 - mainImage: string
 - floor: number
-- elevator: boolean
+- lift: boolean
 - agency: string
 - contact: string
 - ownershipType: enum (co-op, personal)
