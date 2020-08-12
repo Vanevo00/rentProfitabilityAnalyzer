@@ -4,7 +4,7 @@ export default gql`
     type Neighbourhood {
         id: ID!
         name: String!
-        city: City
+        city: City!
     }
 
     extend type Query {
@@ -14,7 +14,7 @@ export default gql`
     extend type Mutation {
         addNeighbourhood(
             name: String!
-            city: ID
+            city: ID!
         ): Neighbourhood
     }
 `

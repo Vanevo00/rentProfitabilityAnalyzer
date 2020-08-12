@@ -42,10 +42,10 @@
 - squareMeters: number; required
 - rentCZK: number; required
 - rentPerMeter: number; required
+- neighbourhood: Neighbourhood
+- city: City; required
 - dispositions: string
 - link: string
-- neighbourhood: Neighbourhood
-- city: City
 - created: date
 
 5) User

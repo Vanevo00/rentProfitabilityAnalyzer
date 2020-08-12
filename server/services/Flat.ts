@@ -23,7 +23,7 @@ export class FlatService {
 
     return {
       ...args,
-      pricePerMeter: priceCZK / squareMeters
+      pricePerMeter: Math.floor(priceCZK / squareMeters)
     }
   }
 }

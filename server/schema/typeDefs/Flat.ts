@@ -32,7 +32,7 @@ export default gql`
         mortgaged: Boolean
         notes: String
         neighbourhood: Neighbourhood
-        city: City
+        city: City!
         created: String
         updated: String
     }
