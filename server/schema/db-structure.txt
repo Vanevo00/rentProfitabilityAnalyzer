@@ -12,6 +12,7 @@
 - squareMeters: number; required
 - priceCZK: number; required
 - pricePerMeter: number; required
+- nearbyPurchasePricesPerMeter: []
 - dispositions: string
 - link: string
 - mainImage: string
@@ -30,6 +31,7 @@
 - neighbourhood: Neighbourhood
 - city: City
 - created: date
+- updated: date
 
 4) Rent
 - address: string; required
