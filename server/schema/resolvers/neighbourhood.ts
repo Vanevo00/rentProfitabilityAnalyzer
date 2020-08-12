@@ -1,16 +1,13 @@
-import { Neighbourhood } from '../../models'
+import { NeighbourhoodService } from '../../services/Neighbourhood'
+import { Neighbourhood as NeighbourhoodType } from '../../types/Neighbourhood'
+
+const neighbourhoodService = new NeighbourhoodService()
 
 export default {
   Query: {
-    getNeighbourhoods: async () => await Neighbourhood.find({}).populate('city').exec()
+    getNeighbourhoods: async (): Promise<NeighbourhoodType[]> => await neighbourhoodService.find()
   },
   Mutation: {
-    addNeighbourhood: async (_, args: any) => {
-      try {
-        return await Neighbourhood.create(args)
-      } catch (err) {
-        console.error(err)
-      }
-    }
+    addNeighbourhood: async (_, args: any): Promise<NeighbourhoodType> => await neighbourhoodService.create(_, args)
   }
 }

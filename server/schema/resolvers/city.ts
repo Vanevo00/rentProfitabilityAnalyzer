@@ -1,20 +1,13 @@
-import { City } from '../../models'
+import { CityService } from '../../services/City'
+import { City as CityType } from '../../types/City'
+
+const cityService = new CityService()
 
 export default {
   Query: {
-    getCities: async () => await City.find({}).exec()
+    getCities: async (): Promise<CityType[]> => await cityService.find()
   },
   Mutation: {
-    addCity: async (_, args: any) => {
-      try {
-        const popularity = args.popularity || 0
-        return await City.create({
-          ...args,
-          popularity
-        })
-      } catch (err) {
-        console.error(err)
-      }
-    }
+    addCity: async (_, args): Promise<CityType> => await cityService.create(_, args)
   }
 }
