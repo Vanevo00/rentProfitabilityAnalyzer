@@ -38,7 +38,22 @@
 - updated: date
 
 4) Auction
-- address: string; required
+- address: string
+- squareMeters: number
+- startingPrice: number
+- estimatedPrice: number
+- dispositions: string
+- minimalBid: number
+- type: string
+- deposit: number
+- city: City
+- neighbourhood: Neighbourhood
+- voluntary: boolean
+- starts: date; required
+- auctioneer: string
+- mainImage: string
+- links: [string]
+- created: date
 
 5) Rent
 - address: string; required
