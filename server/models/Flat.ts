@@ -27,9 +27,9 @@ const FlatSchema = mongoose.Schema({
   dispositions: {
     type: String
   },
-  link: {
+  links: [{
     type: String
-  },
+  }],
   mainImage: {
     type: String
   },

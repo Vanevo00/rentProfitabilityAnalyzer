@@ -18,7 +18,7 @@
     pricePerMeter: number
   }[]
 - dispositions: string
-- link: string
+- links: [string]
 - mainImage: string
 - floor: number
 - lift: boolean
@@ -37,7 +37,10 @@
 - created: date
 - updated: date
 
-4) Rent
+4) Auction
+- address: string; required
+
+5) Rent
 - address: string; required
 - squareMeters: number; required
 - rentCZK: number; required
@@ -48,7 +51,7 @@
 - link: string
 - created: date
 
-5) User
+6) User
 - email: string; required
 - password: string; required
 - name: string
@@ -58,10 +61,10 @@
 - updated: date
 - favoriteFlats: [Flat]
 
-6) RealEstateWebsite
+7) RealEstateWebsite
 - name: string
 
-7) RealEstateLink
+8) RealEstateLink
 - link: string
 - scraped: boolean
 - realEstateWebsite: RealEstateWebsite

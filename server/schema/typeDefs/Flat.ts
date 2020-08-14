@@ -15,7 +15,7 @@ export default gql`
         pricePerMeter: Int!
         nearbyPurchases: [NearbyPurchase]
         dispositions: String
-        link: String
+        links: [String]
         mainImage: String
         floor: Int
         lift: Boolean
@@ -48,7 +48,7 @@ export default gql`
             priceCZK: Int!
             city: ID!
             dispositions: String
-            link: String
+            links: [String]
             mainImage: String
             floor: Int
             lift: Boolean

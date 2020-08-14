@@ -8,7 +8,7 @@ export interface Flat extends Document {
   priceCZK: number
   city: City
   dispositions?: string
-  link?: string
+  links?: string[]
   mainImage?: string
   floor?: number
   lift?: boolean
