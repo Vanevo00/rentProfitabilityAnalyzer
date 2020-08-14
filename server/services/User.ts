@@ -6,7 +6,23 @@ import validatePassword from '../utils/validatePassword'
 
 export class UserService {
   async find (): Promise<UserType[]> {
-    return await User.find({}).populate('favoriteFlats')
+    return await User
+      .find({})
+      .populate('favoriteFlats')
+      .populate({
+        path: 'favoriteFlats',
+        populate: {
+          path: 'city',
+          model: 'city'
+        }
+      })
+      .populate({
+        path: 'favoriteFlats',
+        populate: {
+          path: 'neighbourhood',
+          model: 'neighbourhood'
+        }
+      })
   }
 
   async register (_, args): Promise<UserType> {
