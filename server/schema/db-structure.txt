@@ -49,11 +49,13 @@
 - created: date
 
 5) User
-- email: string
-- password: string
+- email: string; required
+- password: string; required
 - name: string
 - isAdmin: boolean
+- activated: boolean
 - created: date
+- updated: date
 - favoriteFlats: [Flat]
 
 6) RealEstateWebsite

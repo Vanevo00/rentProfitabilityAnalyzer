@@ -3,7 +3,7 @@ import { City as CityType } from '../types/City'
 
 export class CityService {
   async find (): Promise<CityType[]> {
-    return await City.find({}).exec()
+    return await City.find({})
   }
 
   async create (_, args): Promise<CityType> {

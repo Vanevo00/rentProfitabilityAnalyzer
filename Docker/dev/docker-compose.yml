@@ -1,7 +1,7 @@
 version: '3'
 services:
-  mongo:
-    container_name: mongo
+  rents_analyzer_mongo:
+    container_name: rents_analyzer_mongo
     image: mongo:4.4
     logging:
       driver: none
@@ -9,8 +9,8 @@ services:
       - '27017:27017'
     volumes:
       - ../../storage/mongo:/data/db
-  server:
-    container_name: server
+  rents_analyzer_server:
+    container_name: rents_analyzer_server
     restart: always
     build:
       dockerfile: ../Docker/dev/Dockerfile
@@ -19,8 +19,9 @@ services:
       - '8999:8999'
     volumes:
       - ../../server:/usr/src/app
+      - /usr/src/app/node_modules/
     links:
-      - mongo
+      - rents_analyzer_mongo
 
 volumes:
   mongo-data:

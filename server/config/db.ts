@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const db = 'mongodb://mongo:27017/server'
+const db = 'mongodb://rents_analyzer_mongo:27017/server'
 
 const connectDB = async () => {
   try {
