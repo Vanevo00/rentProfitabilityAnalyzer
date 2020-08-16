@@ -12,12 +12,16 @@
 - squareMeters: number; required
 - priceCZK: number; required
 - pricePerMeter: number; required
-- nearbyPurchasePricesPerMeter: []
+- nearbyPurchases: {
+    address: string
+    squareMeters: string
+    pricePerMeter: number
+  }[]
 - dispositions: string
-- link: string
+- links: [string]
 - mainImage: string
 - floor: number
-- elevator: boolean
+- lift: boolean
 - agency: string
 - contact: string
 - ownershipType: enum (co-op, personal)
@@ -33,29 +37,57 @@
 - created: date
 - updated: date
 
-4) Rent
+4) Auction
+- address: string
+- squareMeters: number
+- startingPriceCZK: number; required
+- estimatedPriceCZK: number
+- startingPricePerMeter: number
+- estimatedPricePerMeter: number
+- minimalBidCZK: number
+- depositCZK: number
+- nearbyPurchases: {
+    address: string
+    squareMeters: number
+    pricePerMeter: number
+  }[]
+- dispositions: string
+- city: City; required
+- neighbourhood: Neighbourhood
+- voluntary: boolean
+- starts: date; required
+- auctioneer: string
+- mainImage: string
+- links: [string]
+- created: date
+- updated: date
+
+5) Rent
 - address: string; required
 - squareMeters: number; required
 - rentCZK: number; required
 - rentPerMeter: number; required
+- neighbourhood: Neighbourhood
+- city: City; required
 - dispositions: string
 - link: string
-- neighbourhood: Neighbourhood
-- city: City
 - created: date
 
-5) User
-- email: string
-- password: string
+6) User
+- email: string; required
+- password: string; required
 - name: string
 - isAdmin: boolean
+- activated: boolean
 - created: date
+- updated: date
 - favoriteFlats: [Flat]
 
-6) RealEstateWebsite
-- name: string
+7) RealEstateWebsite
+- name: string; required, unique
+- domain: string; required, unique
 
-7) RealEstateLink
-- link: string
-- scraped: boolean
-- realEstateWebsite: RealEstateWebsite
+8) RealEstateLink
+- link: string; unique, required
+- scraped; boolean, default false, required
+- realEstateWebsite: RealEstateWebsite; required
