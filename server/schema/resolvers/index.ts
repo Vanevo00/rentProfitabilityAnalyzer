@@ -6,6 +6,7 @@ import rent from './rent'
 import user from './user'
 import auction from './auction'
 import realEstateWebsite from './realEstateWebsite'
+import realEstateLink from './realEstateLink'
 
 export default merge(
   city,
@@ -14,5 +15,6 @@ export default merge(
   rent,
   user,
   auction,
-  realEstateWebsite
+  realEstateWebsite,
+  realEstateLink
 )

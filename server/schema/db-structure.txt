@@ -88,6 +88,6 @@
 - domain: string; required, unique
 
 8) RealEstateLink
-- link: string
-- scraped: boolean
-- realEstateWebsite: RealEstateWebsite
+- link: string; unique, required
+- scraped; boolean, default false, required
+- realEstateWebsite: RealEstateWebsite; required
