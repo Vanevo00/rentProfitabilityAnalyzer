@@ -4,11 +4,13 @@ import neighbourhood from './neighbourhood'
 import flat from './flat'
 import rent from './rent'
 import user from './user'
+import auction from './auction'
 
 export default merge(
   city,
   neighbourhood,
   flat,
   rent,
-  user
+  user,
+  auction
 )

@@ -5,6 +5,7 @@ import Query from './Query'
 import Mutation from './Mutation'
 import Rent from './Rent'
 import User from './User'
+import Auction from './Auction'
 
 export default [
   Query,
@@ -13,5 +14,6 @@ export default [
   Neighbourhood,
   Flat,
   Rent,
-  User
+  User,
+  Auction
 ]

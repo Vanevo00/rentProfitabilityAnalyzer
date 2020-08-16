@@ -40,13 +40,19 @@
 4) Auction
 - address: string
 - squareMeters: number
-- startingPrice: number
-- estimatedPrice: number
+- startingPriceCZK: number; required
+- estimatedPriceCZK: number
+- startingPricePerMeter: number
+- estimatedPricePerMeter: number
+- minimalBidCZK: number
+- depositCZK: number
+- nearbyPurchases: {
+    address: string
+    squareMeters: number
+    pricePerMeter: number
+  }[]
 - dispositions: string
-- minimalBid: number
-- type: string
-- deposit: number
-- city: City
+- city: City; required
 - neighbourhood: Neighbourhood
 - voluntary: boolean
 - starts: date; required
@@ -54,6 +60,7 @@
 - mainImage: string
 - links: [string]
 - created: date
+- updated: date
 
 5) Rent
 - address: string; required

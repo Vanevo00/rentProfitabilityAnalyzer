@@ -1,11 +1,16 @@
 import { City } from './City'
 import { Neighbourhood } from './Neighbourhood'
 
-export interface Flat extends Document {
+export interface Flat {
   _id: string
   address: string
   squareMeters: number
   priceCZK: number
+  nearbyPurchases?: {
+    address: string
+    squareMeters: string
+    pricePerMeter: number
+  }[]
   city: City
   dispositions?: string
   links?: string[]

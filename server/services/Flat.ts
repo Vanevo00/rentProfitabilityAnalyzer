@@ -3,7 +3,7 @@ import { Flat as FlatType } from '../types/Flat'
 
 export class FlatService {
   async find (): Promise<FlatType[]> {
-    return await Flat.find({}).populate('city').populate('neighbourhood').exec()
+    return await Flat.find({}).populate('city').populate('neighbourhood')
   }
 
   async create (_, args): Promise<FlatType> {
