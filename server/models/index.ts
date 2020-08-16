@@ -4,6 +4,7 @@ import { Flat } from './Flat'
 import { Rent } from './Rent'
 import { User } from './User'
 import { Auction } from './Auction'
+import { RealEstateWebsite } from './RealEstateWebsite'
 
 export {
   City,
@@ -11,5 +12,6 @@ export {
   Flat,
   Rent,
   User,
-  Auction
+  Auction,
+  RealEstateWebsite
 }

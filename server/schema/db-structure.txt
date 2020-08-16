@@ -84,7 +84,8 @@
 - favoriteFlats: [Flat]
 
 7) RealEstateWebsite
-- name: string
+- name: string; required, unique
+- domain: string; required, unique
 
 8) RealEstateLink
 - link: string

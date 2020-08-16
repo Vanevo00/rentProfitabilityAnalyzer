@@ -6,6 +6,7 @@ import Mutation from './Mutation'
 import Rent from './Rent'
 import User from './User'
 import Auction from './Auction'
+import RealEstateWebsite from './RealEstateWebsite'
 
 export default [
   Query,
@@ -15,5 +16,6 @@ export default [
   Flat,
   Rent,
   User,
-  Auction
+  Auction,
+  RealEstateWebsite
 ]
