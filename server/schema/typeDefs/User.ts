@@ -14,7 +14,9 @@ export default gql`
     }
 
     extend type Query {
-        getUsers: [User]
+        getUsers(
+            paginator: Paginator
+        ): [User]
     }
 
     extend type Mutation {

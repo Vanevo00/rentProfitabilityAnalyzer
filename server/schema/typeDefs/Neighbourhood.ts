@@ -8,7 +8,9 @@ export default gql`
     }
 
     extend type Query {
-        getNeighbourhoods: [Neighbourhood]
+        getNeighbourhoods(
+            paginator: Paginator
+        ): [Neighbourhood]
     }
 
     extend type Mutation {

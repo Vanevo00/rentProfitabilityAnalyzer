@@ -1,13 +1,26 @@
 import { User } from '../models'
 import { User as UserType } from '../types/User'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import validateEmail from '../utils/validateEmail'
 import validatePassword from '../utils/validatePassword'
+import { Paginator } from '../types/Paginator'
 
 export class UserService {
-  async find (): Promise<UserType[]> {
+  async find (
+    paginator: Paginator
+  ): Promise<UserType[]> {
+    const {
+      paginator: {
+        size = 2,
+        page = 1,
+        offset = 0
+      } = {}
+    } = paginator
+
     return await User
       .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
       .populate('favoriteFlats')
       .populate({
         path: 'favoriteFlats',

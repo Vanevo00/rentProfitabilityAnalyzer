@@ -25,7 +25,9 @@ export default gql`
     }
 
     extend type Query {
-        getAuctions: [Auction]
+        getAuctions(
+            paginator: Paginator
+        ): [Auction]
     }
 
     extend type Mutation {

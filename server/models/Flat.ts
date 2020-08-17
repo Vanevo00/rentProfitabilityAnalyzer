@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { Paginator } from '../types/Paginator'
 
 const FlatSchema = mongoose.Schema({
   address: {

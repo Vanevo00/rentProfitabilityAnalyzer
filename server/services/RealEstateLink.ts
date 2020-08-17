@@ -1,10 +1,21 @@
 import { RealEstateLink } from '../models'
 import { RealEstateLink as RealEstateLinkType } from '../types/RealEstateLink'
+import { Paginator } from '../types/Paginator'
 
 export class RealEstateLinkService {
-  async find (): Promise<RealEstateLinkType[]> {
+  async find (
+    paginator: Paginator
+  ): Promise<RealEstateLinkType[]> {
+    const {
+      size = 30,
+      page = 1,
+      offset = 0
+    } = paginator.paginator
+
     return await RealEstateLink
       .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
       .populate('website')
   }
 
