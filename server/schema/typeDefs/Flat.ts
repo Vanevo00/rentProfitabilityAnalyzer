@@ -38,7 +38,9 @@ export default gql`
     }
 
     extend type Query {
-        getFlats: [Flat]
+        getFlats(
+            paginator: Paginator
+        ): [Flat]
     }
 
     extend type Mutation {

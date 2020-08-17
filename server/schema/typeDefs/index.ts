@@ -8,10 +8,12 @@ import User from './User'
 import Auction from './Auction'
 import RealEstateWebsite from './RealEstateWebsite'
 import RealEstateLink from './RealEstateLink'
+import Paginator from './Paginator'
 
 export default [
   Query,
   Mutation,
+  Paginator,
   City,
   Neighbourhood,
   Flat,

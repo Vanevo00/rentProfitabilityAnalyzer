@@ -1,6 +1,6 @@
 import { User } from '../models'
 import { User as UserType } from '../types/User'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import validateEmail from '../utils/validateEmail'
 import validatePassword from '../utils/validatePassword'
 
