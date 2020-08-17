@@ -9,7 +9,7 @@ export default {
     getFlats: async (
       _,
       paginator: Paginator
-    ): Promise<FlatType[]> => await flatService.find(_, paginator)
+    ): Promise<FlatType[]> => await flatService.find(paginator)
   },
   Mutation: {
     addFlat: async (_, args): Promise<FlatType> => await flatService.create(_, args)

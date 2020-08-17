@@ -1,9 +1,21 @@
 import { RealEstateWebsite } from '../models'
 import { RealEstateWebsite as RealEstateWebsiteType } from '../types/RealEstateWebsite'
+import { Paginator } from '../types/Paginator'
 
 export class RealEstateWebsiteService {
-  async find (): Promise<RealEstateWebsiteType[]> {
-    return await RealEstateWebsite.find({})
+  async find (
+    paginator: Paginator
+  ): Promise<RealEstateWebsiteType[]> {
+    const {
+      size = 30,
+      page = 1,
+      offset = 0
+    } = paginator.paginator
+
+    return await RealEstateWebsite
+      .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
   }
 
   async create (_, args): Promise<RealEstateWebsiteType> {

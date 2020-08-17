@@ -1,5 +1,5 @@
 export interface Paginator {
-  paginator: {
+  paginator?: {
   page: number
   size: number
   offset?: number

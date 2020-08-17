@@ -9,7 +9,9 @@ export default gql`
     }
 
     extend type Query {
-        getRealEstateLinks: [RealEstateLink]
+        getRealEstateLinks(
+            paginator: Paginator
+        ): [RealEstateLink]
     }
 
     extend type Mutation {

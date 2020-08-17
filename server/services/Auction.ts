@@ -1,10 +1,21 @@
 import { Auction } from '../models'
 import { Auction as AuctionType } from '../types/Auction'
+import { Paginator } from '../types/Paginator'
 
 export class AuctionService {
-  async find (): Promise<AuctionType[]> {
+  async find (
+    paginator: Paginator
+  ): Promise<AuctionType[]> {
+    const {
+      size = 30,
+      page = 1,
+      offset = 0
+    } = paginator.paginator
+
     return await Auction
       .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
       .populate('city')
       .populate('neighbourhood')
   }

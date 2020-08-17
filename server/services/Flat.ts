@@ -4,7 +4,6 @@ import { Paginator } from '../types/Paginator'
 
 export class FlatService {
   async find (
-    _,
     paginator: Paginator
   ): Promise<FlatType[]> {
     const {

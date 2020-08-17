@@ -1,9 +1,22 @@
 import { Neighbourhood } from '../models'
 import { Neighbourhood as NeighbourhoodType } from '../types/Neighbourhood'
+import { Paginator } from '../types/Paginator'
 
 export class NeighbourhoodService {
-  async find (): Promise<NeighbourhoodType[]> {
-    return await Neighbourhood.find({}).populate('city')
+  async find (
+    paginator: Paginator
+  ): Promise<NeighbourhoodType[]> {
+    const {
+      size = 30,
+      page = 1,
+      offset = 0
+    } = paginator.paginator
+
+    return await Neighbourhood
+      .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
+      .populate('city')
   }
 
   async create (_, args): Promise<NeighbourhoodType> {

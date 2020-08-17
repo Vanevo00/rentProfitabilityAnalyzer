@@ -15,7 +15,9 @@ export default gql`
     }
 
     extend type Query {
-        getRents: [Rent]
+        getRents(
+            paginator: Paginator
+        ): [Rent]
     }
 
     extend type Mutation {

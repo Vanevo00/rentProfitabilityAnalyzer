@@ -10,7 +10,9 @@ export default gql`
   }
   
   extend type Query {
-      getCities: [City]
+      getCities(
+          paginator: Paginator
+      ): [City]
   }
   
   extend type Mutation {

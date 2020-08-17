@@ -1,9 +1,21 @@
 import { Rent } from '../models'
 import { Rent as RentType } from '../types/Rent'
+import { Paginator } from '../types/Paginator'
 
 export class RentService {
-  async find (): Promise<RentType[]> {
-    return await Rent.find({})
+  async find (
+    paginator: Paginator
+  ): Promise<RentType[]> {
+    const {
+      size = 30,
+      page = 1,
+      offset = 0
+    } = paginator.paginator
+
+    return await Rent
+      .find({})
+      .limit(size)
+      .skip((page - 1) * size + offset)
       .populate('city')
       .populate('neighbourhood')
   }
