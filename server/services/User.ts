@@ -11,7 +11,7 @@ export class UserService {
   ): Promise<UserType[]> {
     const {
       paginator: {
-        size = 2,
+        size = 30,
         page = 1,
         offset = 0
       } = {}

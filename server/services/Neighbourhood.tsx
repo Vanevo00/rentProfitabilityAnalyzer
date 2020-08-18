@@ -7,10 +7,12 @@ export class NeighbourhoodService {
     paginator: Paginator
   ): Promise<NeighbourhoodType[]> {
     const {
-      size = 30,
-      page = 1,
-      offset = 0
-    } = paginator.paginator
+      paginator: {
+        size = 30,
+        page = 1,
+        offset = 0
+      } = {}
+    } = paginator
 
     return await Neighbourhood
       .find({})

@@ -7,10 +7,12 @@ export class CityService {
     paginator: Paginator
   ): Promise<CityType[]> {
     const {
-      size = 30,
-      page = 1,
-      offset = 0
-    } = paginator.paginator
+      paginator: {
+        size = 30,
+        page = 1,
+        offset = 0
+      } = {}
+    } = paginator
 
     return await City
       .find({})

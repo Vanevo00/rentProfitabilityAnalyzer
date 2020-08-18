@@ -7,10 +7,12 @@ export class AuctionService {
     paginator: Paginator
   ): Promise<AuctionType[]> {
     const {
-      size = 30,
-      page = 1,
-      offset = 0
-    } = paginator.paginator
+      paginator: {
+        size = 30,
+        page = 1,
+        offset = 0
+      } = {}
+    } = paginator
 
     return await Auction
       .find({})
