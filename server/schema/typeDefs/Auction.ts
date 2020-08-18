@@ -32,17 +32,17 @@ export default gql`
 
     extend type Mutation {
         addAuction(
+            startingPriceCZK: Int!
+            city: ID!
+            starts: String!
             address: String
             squareMeters: Int
-            startingPriceCZK: Int!
             estimatedPriceCZK: Int
             minimalBidCZK: Int
             depositCZK: Int
             dispositions: String
-            city: ID!
             neighbourhood: ID
             voluntary: Boolean
-            starts: String
             auctioneer: String
             mainImage: String
             links: [String]

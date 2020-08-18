@@ -7,11 +7,9 @@ export class RealEstateWebsiteService {
     paginator: Paginator
   ): Promise<RealEstateWebsiteType[]> {
     const {
-      paginator: {
-        size = 30,
-        page = 1,
-        offset = 0
-      } = {}
+      size,
+      page,
+      offset = 0
     } = paginator
 
     return await RealEstateWebsite

@@ -7,11 +7,9 @@ export class FlatService {
     paginator: Paginator
   ): Promise<FlatType[]> {
     const {
-      paginator: {
-        size = 30,
-        page = 1,
-        offset = 0
-      } = {}
+      size,
+      page,
+      offset = 0
     } = paginator
 
     return await Flat
