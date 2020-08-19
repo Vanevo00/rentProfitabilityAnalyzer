@@ -1,24 +1,23 @@
 import { UserService } from '../../services/User'
 import { User as UserType } from '../../types/User'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
+import { DefaultSorting } from '../../types/Sorting'
 
 const userService = new UserService()
-
-interface UserArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getUsers: async (
       _,
-      args: UserArgs
+      args: PaginationAndSorting
     ): Promise<UserType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await userService.find(paginator)
+      return await userService.find(paginator, sorting)
     }
   },
   Mutation: {

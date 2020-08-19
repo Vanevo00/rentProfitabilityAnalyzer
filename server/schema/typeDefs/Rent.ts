@@ -17,6 +17,7 @@ export default gql`
     extend type Query {
         getRents(
             paginator: Paginator
+            sorting: Sorting
         ): [Rent]
     }
 

@@ -1,10 +1,13 @@
 import { RealEstateLink } from '../models'
 import { RealEstateLink as RealEstateLinkType } from '../types/RealEstateLink'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class RealEstateLinkService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<RealEstateLinkType[]> {
     const {
       size,
@@ -16,6 +19,7 @@ export class RealEstateLinkService {
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
       .populate('website')
   }
 

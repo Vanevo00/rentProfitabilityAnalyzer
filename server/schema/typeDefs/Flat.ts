@@ -40,6 +40,7 @@ export default gql`
     extend type Query {
         getFlats(
             paginator: Paginator
+            sorting: Sorting
         ): [Flat]
     }
 

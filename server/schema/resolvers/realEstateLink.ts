@@ -1,24 +1,23 @@
 import { RealEstateLink as RealEstateLinkType } from '../../types/RealEstateLink'
 import { RealEstateLinkService } from '../../services/RealEstateLink'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
+import { DefaultSorting } from '../../types/Sorting'
 
 const realEstateLinkService = new RealEstateLinkService()
-
-interface RealEstateLinksArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getRealEstateLinks: async (
       _,
-      args: RealEstateLinksArgs
+      args: PaginationAndSorting
     ): Promise<RealEstateLinkType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await realEstateLinkService.find(paginator)
+      return await realEstateLinkService.find(paginator, sorting)
     }
   },
   Mutation: {

@@ -12,6 +12,7 @@ export default gql`
     extend type Query {
         getRealEstateLinks(
             paginator: Paginator
+            sorting: Sorting
         ): [RealEstateLink]
     }
 

@@ -1,24 +1,20 @@
 import { Auction as AuctionType } from '../../types/Auction'
 import { AuctionService } from '../../services/Auction'
 import { DefaultPaginator, Paginator } from '../../types/Paginator'
-import { Sorting } from '../../types/Sorting'
+import { DefaultSorting, Sorting } from '../../types/Sorting'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
 
 const auctionService = new AuctionService()
-
-interface AuctionArgs {
-  paginator: Paginator
-  sorting: Sorting
-}
 
 export default {
   Query: {
     getAuctions: async (
       _,
-      args: AuctionArgs
+      args: PaginationAndSorting
     ): Promise<AuctionType[]> => {
       const {
         paginator = DefaultPaginator,
-        sorting
+        sorting = DefaultSorting
       } = args
 
       return await auctionService.find(paginator, sorting)

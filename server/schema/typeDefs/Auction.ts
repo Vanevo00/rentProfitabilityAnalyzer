@@ -16,7 +16,7 @@ export default gql`
         city: City!
         neighbourhood: Neighbourhood
         voluntary: Boolean
-        starts: String
+        starts: Date!
         auctioneer: String
         mainImage: String
         links: [String]

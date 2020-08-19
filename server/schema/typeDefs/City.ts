@@ -13,6 +13,7 @@ export default gql`
   extend type Query {
       getCities(
           paginator: Paginator
+          sorting: Sorting
       ): [City]
   }
   

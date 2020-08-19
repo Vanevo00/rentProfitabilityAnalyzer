@@ -11,6 +11,7 @@ export default gql`
     extend type Query {
         getNeighbourhoods(
             paginator: Paginator
+            sorting: Sorting
         ): [Neighbourhood]
     }
 

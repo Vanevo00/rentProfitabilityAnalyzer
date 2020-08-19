@@ -1,11 +1,14 @@
 export interface Sorting {
-  sorting?: {
-    key: number
+    key: string
     order?: Order
-  }
 }
 
 enum Order {
-  DESC = 'DESC',
-  ASC = 'ASC'
+  DESC = -1,
+  ASC = 1
+}
+
+export const DefaultSorting: Sorting = {
+  key: 'created',
+  order: Order.DESC
 }

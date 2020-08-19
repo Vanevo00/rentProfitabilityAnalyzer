@@ -1,10 +1,13 @@
 import { Neighbourhood } from '../models'
 import { Neighbourhood as NeighbourhoodType } from '../types/Neighbourhood'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class NeighbourhoodService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<NeighbourhoodType[]> {
     const {
       size,
@@ -16,6 +19,7 @@ export class NeighbourhoodService {
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
       .populate('city')
   }
 

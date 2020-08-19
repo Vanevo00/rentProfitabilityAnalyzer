@@ -4,10 +4,13 @@ import bcrypt from 'bcryptjs'
 import validateEmail from '../utils/validateEmail'
 import validatePassword from '../utils/validatePassword'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class UserService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<UserType[]> {
     const {
       size,
@@ -19,6 +22,7 @@ export class UserService {
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
       .populate('favoriteFlats')
       .populate({
         path: 'favoriteFlats',

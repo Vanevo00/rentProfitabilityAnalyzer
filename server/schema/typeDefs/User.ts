@@ -16,6 +16,7 @@ export default gql`
     extend type Query {
         getUsers(
             paginator: Paginator
+            sorting: Sorting
         ): [User]
     }
 

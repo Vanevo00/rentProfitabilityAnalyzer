@@ -1,24 +1,23 @@
 import { NeighbourhoodService } from '../../services/Neighbourhood'
 import { Neighbourhood as NeighbourhoodType } from '../../types/Neighbourhood'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
+import { DefaultSorting } from '../../types/Sorting'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
 
 const neighbourhoodService = new NeighbourhoodService()
-
-interface NeighbourhoodArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getNeighbourhoods: async (
       _,
-      args: NeighbourhoodArgs
+      args: PaginationAndSorting
     ): Promise<NeighbourhoodType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await neighbourhoodService.find(paginator)
+      return await neighbourhoodService.find(paginator, sorting)
     }
   },
   Mutation: {

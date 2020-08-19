@@ -2,6 +2,7 @@ import { Auction } from '../models'
 import { Auction as AuctionType } from '../types/Auction'
 import { Paginator } from '../types/Paginator'
 import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class AuctionService {
   async find (
@@ -14,13 +15,11 @@ export class AuctionService {
       offset = 0
     } = paginator
 
-    console.log("paginator", paginator)
-    console.log("sorting", sorting)
-
     return await Auction
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
       .populate('city')
       .populate('neighbourhood')
   }

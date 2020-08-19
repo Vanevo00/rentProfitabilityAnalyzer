@@ -1,24 +1,23 @@
 import { Flat as FlatType } from '../../types/Flat'
 import { FlatService } from '../../services/Flat'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
+import { DefaultSorting } from '../../types/Sorting'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
 
 const flatService = new FlatService()
-
-interface FlatArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getFlats: async (
       _,
-      args: FlatArgs
+      args: PaginationAndSorting
     ): Promise<FlatType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await flatService.find(paginator)
+      return await flatService.find(paginator, sorting)
     }
   },
   Mutation: {

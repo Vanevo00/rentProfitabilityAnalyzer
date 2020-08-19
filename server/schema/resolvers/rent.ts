@@ -1,24 +1,23 @@
 import { Rent as RentType } from '../../types/Rent'
 import { RentService } from '../../services/Rent'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
+import { DefaultSorting } from '../../types/Sorting'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
 
 const rentService = new RentService()
-
-interface RentArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getRents: async (
       _,
-      args: RentArgs
+      args: PaginationAndSorting
     ): Promise<RentType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await rentService.find(paginator)
+      return await rentService.find(paginator, sorting)
     }
   },
   Mutation: {

@@ -1,24 +1,23 @@
 import { CityService } from '../../services/City'
 import { City as CityType } from '../../types/City'
 import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultSorting } from '../../types/Sorting'
+import PaginationAndSorting from '../../types/PaginationAndSorting'
 
 const cityService = new CityService()
-
-interface CityArgs {
-  paginator: Paginator
-}
 
 export default {
   Query: {
     getCities: async (
       _,
-      args: CityArgs
+      args: PaginationAndSorting
     ): Promise<CityType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting = DefaultSorting
       } = args
 
-      return await cityService.find(paginator)
+      return await cityService.find(paginator, sorting)
     }
   },
   Mutation: {
