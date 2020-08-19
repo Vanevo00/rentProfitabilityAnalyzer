@@ -1,11 +1,13 @@
 import { Auction as AuctionType } from '../../types/Auction'
 import { AuctionService } from '../../services/Auction'
 import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { Sorting } from '../../types/Sorting'
 
 const auctionService = new AuctionService()
 
 interface AuctionArgs {
   paginator: Paginator
+  sorting: Sorting
 }
 
 export default {
@@ -15,10 +17,11 @@ export default {
       args: AuctionArgs
     ): Promise<AuctionType[]> => {
       const {
-        paginator = DefaultPaginator
+        paginator = DefaultPaginator,
+        sorting
       } = args
 
-      return await auctionService.find(paginator)
+      return await auctionService.find(paginator, sorting)
     }
   },
   Mutation: {

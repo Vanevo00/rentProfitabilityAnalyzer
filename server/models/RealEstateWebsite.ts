@@ -10,6 +10,10 @@ const RealEstateWebsiteSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 

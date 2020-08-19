@@ -11,7 +11,7 @@ export default gql`
         neighbourhood: Neighbourhood
         dispositions: String!
         link: String
-        created: String
+        created: Date!
     }
 
     extend type Query {

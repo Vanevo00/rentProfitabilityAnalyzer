@@ -1,16 +1,21 @@
 import { Auction } from '../models'
 import { Auction as AuctionType } from '../types/Auction'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
 
 export class AuctionService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<AuctionType[]> {
     const {
       size,
       page,
       offset = 0
     } = paginator
+
+    console.log("paginator", paginator)
+    console.log("sorting", sorting)
 
     return await Auction
       .find({})

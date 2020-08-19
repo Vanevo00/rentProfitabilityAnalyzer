@@ -16,6 +16,10 @@ const CitySchema = mongoose.Schema({
     type: Number,
     required: true,
     default: 0
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 

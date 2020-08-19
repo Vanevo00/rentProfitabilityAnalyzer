@@ -6,6 +6,7 @@ export default gql`
         link: String!
         scraped: Boolean!
         website: RealEstateWebsite
+        created: Date!
     }
 
     extend type Query {

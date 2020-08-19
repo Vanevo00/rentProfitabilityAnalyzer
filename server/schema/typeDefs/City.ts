@@ -7,6 +7,7 @@ export default gql`
       country: String!
       mainImageLink: String
       popularity: Int
+      created: Date!
   }
   
   extend type Query {

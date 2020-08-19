@@ -5,6 +5,7 @@ export default gql`
         id: ID!
         name: String!
         domain: String!
+        created: Date!
     }
 
     extend type Query {

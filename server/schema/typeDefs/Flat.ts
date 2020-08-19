@@ -33,7 +33,7 @@ export default gql`
         notes: String
         neighbourhood: Neighbourhood
         city: City!
-        created: String
+        created: Date!
         updated: String
     }
 

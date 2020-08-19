@@ -9,8 +9,8 @@ export default gql`
         isAdmin: Boolean!
         activated: Boolean!
         favoriteFlats: [Flat]
-        created: String
-        updated: String
+        created: Date!
+        updated: Date!
     }
 
     extend type Query {
