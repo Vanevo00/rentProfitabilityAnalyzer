@@ -7,11 +7,13 @@ export default gql`
       country: String!
       mainImageLink: String
       popularity: Int
+      created: Date!
   }
   
   extend type Query {
       getCities(
           paginator: Paginator
+          sorting: Sorting
       ): [City]
   }
   

@@ -1,21 +1,25 @@
 import { Flat } from '../models'
 import { Flat as FlatType } from '../types/Flat'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class FlatService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<FlatType[]> {
     const {
-      size = 30,
-      page = 1,
+      size,
+      page,
       offset = 0
-    } = paginator.paginator
+    } = paginator
 
     return await Flat
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
       .populate('city')
       .populate('neighbourhood')
   }

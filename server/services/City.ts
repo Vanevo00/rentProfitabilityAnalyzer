@@ -1,21 +1,25 @@
 import { City } from '../models'
 import { City as CityType } from '../types/City'
 import { Paginator } from '../types/Paginator'
+import { Sorting } from '../types/Sorting'
+import prepareSortingObject from '../utils/prepareSortingObject'
 
 export class CityService {
   async find (
-    paginator: Paginator
+    paginator: Paginator,
+    sorting: Sorting
   ): Promise<CityType[]> {
     const {
-      size = 30,
-      page = 1,
+      size,
+      page,
       offset = 0
-    } = paginator.paginator
+    } = paginator
 
     return await City
       .find({})
       .limit(size)
       .skip((page - 1) * size + offset)
+      .sort(prepareSortingObject(sorting))
   }
 
   async create (_, args): Promise<CityType> {

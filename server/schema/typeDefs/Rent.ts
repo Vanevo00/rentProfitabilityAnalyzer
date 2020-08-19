@@ -11,12 +11,13 @@ export default gql`
         neighbourhood: Neighbourhood
         dispositions: String!
         link: String
-        created: String
+        created: Date!
     }
 
     extend type Query {
         getRents(
             paginator: Paginator
+            sorting: Sorting
         ): [Rent]
     }
 

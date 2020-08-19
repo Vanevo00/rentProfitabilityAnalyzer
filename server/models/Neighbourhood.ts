@@ -8,6 +8,10 @@ const NeighbourhoodSchema = mongoose.Schema({
   city: {
     type: mongoose.Schema.Types.ObjectID,
     ref: 'city'
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 

@@ -16,33 +16,34 @@ export default gql`
         city: City!
         neighbourhood: Neighbourhood
         voluntary: Boolean
-        starts: String
+        starts: Date!
         auctioneer: String
         mainImage: String
         links: [String]
-        created: String
-        updated: String
+        created: Date!
+        updated: Date
     }
 
     extend type Query {
         getAuctions(
             paginator: Paginator
+            sorting: Sorting
         ): [Auction]
     }
 
     extend type Mutation {
         addAuction(
+            startingPriceCZK: Int!
+            city: ID!
+            starts: String!
             address: String
             squareMeters: Int
-            startingPriceCZK: Int!
             estimatedPriceCZK: Int
             minimalBidCZK: Int
             depositCZK: Int
             dispositions: String
-            city: ID!
             neighbourhood: ID
             voluntary: Boolean
-            starts: String
             auctioneer: String
             mainImage: String
             links: [String]

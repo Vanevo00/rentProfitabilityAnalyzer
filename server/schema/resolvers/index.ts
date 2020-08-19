@@ -7,8 +7,10 @@ import user from './user'
 import auction from './auction'
 import realEstateWebsite from './realEstateWebsite'
 import realEstateLink from './realEstateLink'
+import date from './scalars/date'
 
 export default merge(
+  date,
   city,
   neighbourhood,
   flat,

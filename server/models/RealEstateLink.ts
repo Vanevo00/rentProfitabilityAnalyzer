@@ -15,6 +15,10 @@ const RealEstateLinkSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectID,
     ref: 'realEstateWebsite',
     required: true
+  },
+  created: {
+    type: Date,
+    default: Date.now
   }
 })
 

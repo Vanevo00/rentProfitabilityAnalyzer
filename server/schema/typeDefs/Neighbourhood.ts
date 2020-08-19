@@ -5,11 +5,13 @@ export default gql`
         id: ID!
         name: String!
         city: City!
+        created: Date!
     }
 
     extend type Query {
         getNeighbourhoods(
             paginator: Paginator
+            sorting: Sorting
         ): [Neighbourhood]
     }
 
