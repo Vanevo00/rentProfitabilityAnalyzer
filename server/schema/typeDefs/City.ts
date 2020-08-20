@@ -5,6 +5,9 @@ export default gql`
       id: ID!
       name: String!
       country: String!
+      county: County!
+      district: District!
+      population: Int!
       mainImageLink: String
       popularity: Int
       created: Date!
@@ -21,6 +24,9 @@ export default gql`
       addCity(
           name: String!
           country: String!
+          county: ID!
+          district: ID!
+          population: Int!
           mainImageLink: String
           popularity: Int
       ): City

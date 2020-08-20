@@ -20,6 +20,8 @@ export class CityService {
       .limit(size)
       .skip((page - 1) * size + offset)
       .sort(prepareSortingObject(sorting))
+      .populate('county')
+      .populate('district')
   }
 
   async create (_, args): Promise<CityType> {

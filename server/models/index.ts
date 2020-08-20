@@ -6,9 +6,13 @@ import { User } from './User'
 import { Auction } from './Auction'
 import { RealEstateWebsite } from './RealEstateWebsite'
 import { RealEstateLink } from './RealEstateLink'
+import { County } from './County'
+import { District } from './District'
 
 export {
   City,
+  County,
+  District,
   Neighbourhood,
   Flat,
   Rent,
