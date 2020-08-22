@@ -9,8 +9,22 @@ const CitySchema = mongoose.Schema({
     type: String,
     required: true
   },
+  county: {
+    type: mongoose.Schema.Types.ObjectID,
+    ref: 'county',
+    required: true
+  },
+  district: {
+    type: mongoose.Schema.Types.ObjectID,
+    ref: 'district',
+    required: true
+  },
   mainImageLink: {
     type: String
+  },
+  population: {
+    type: Number,
+    required: true
   },
   popularity: {
     type: Number,

@@ -12,6 +12,8 @@ import Paginator from './inputs/Paginator'
 import Sorting from './inputs/Sorting'
 import Order from './enums/Order'
 import Date from './scalars/Date'
+import County from './County'
+import District from './District'
 
 export default [
   Query,
@@ -20,6 +22,8 @@ export default [
   Mutation,
   Paginator,
   Sorting,
+  County,
+  District,
   City,
   Neighbourhood,
   Flat,

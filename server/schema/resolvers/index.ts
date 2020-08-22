@@ -8,9 +8,13 @@ import auction from './auction'
 import realEstateWebsite from './realEstateWebsite'
 import realEstateLink from './realEstateLink'
 import date from './scalars/date'
+import county from './county'
+import district from './district'
 
 export default merge(
   date,
+  county,
+  district,
   city,
   neighbourhood,
   flat,

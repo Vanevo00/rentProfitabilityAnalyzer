@@ -1,6 +1,6 @@
 import { CityService } from '../../services/City'
 import { City as CityType } from '../../types/City'
-import { DefaultPaginator, Paginator } from '../../types/Paginator'
+import { DefaultPaginator } from '../../types/Paginator'
 import { DefaultSorting } from '../../types/Sorting'
 import PaginationAndSorting from '../../types/PaginationAndSorting'
 
