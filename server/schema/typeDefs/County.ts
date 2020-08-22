@@ -6,6 +6,12 @@ export default gql`
         name: String!
     }
 
+    extend type Query {
+        findCountyByName(
+            name: String!
+        ): County
+    }
+
     extend type Mutation {
         addCounty(
             name: String!

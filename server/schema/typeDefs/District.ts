@@ -6,6 +6,12 @@ export default gql`
         name: String!
     }
     
+    extend type Query {
+        findDistrictByName(
+            name: String!
+        ): District
+    }
+    
     extend type Mutation {
         addDistrict(
             name: String!
