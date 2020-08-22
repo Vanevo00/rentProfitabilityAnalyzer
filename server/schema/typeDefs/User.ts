@@ -7,7 +7,7 @@ export default gql`
         password: String!
         name: String
         isAdmin: Boolean!
-        activated: Boolean!
+        activated: Date
         favoriteFlats: [Flat]
         created: Date!
         updated: Date!

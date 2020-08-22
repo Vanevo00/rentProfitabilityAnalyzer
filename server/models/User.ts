@@ -18,8 +18,7 @@ const UserSchema = mongoose.Schema({
     default: false
   },
   activated: {
-    type: Boolean,
-    default: false
+    type: Date
   },
   favoriteFlats: [{
     type: mongoose.Schema.Types.ObjectID,
