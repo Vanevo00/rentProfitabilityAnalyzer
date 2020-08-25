@@ -8,6 +8,7 @@ import { RealEstateWebsite } from './RealEstateWebsite'
 import { RealEstateLink } from './RealEstateLink'
 import { County } from './County'
 import { District } from './District'
+import { UserActivation } from './UserActivation'
 
 export {
   City,
@@ -19,5 +20,6 @@ export {
   User,
   Auction,
   RealEstateWebsite,
-  RealEstateLink
+  RealEstateLink,
+  UserActivation
 }

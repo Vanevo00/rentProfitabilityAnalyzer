@@ -14,6 +14,7 @@ import Order from './enums/Order'
 import Date from './scalars/Date'
 import County from './County'
 import District from './District'
+import UserActivation from './UserActivation'
 
 export default [
   Query,
@@ -29,6 +30,7 @@ export default [
   Flat,
   Rent,
   User,
+  UserActivation,
   Auction,
   RealEstateWebsite,
   RealEstateLink

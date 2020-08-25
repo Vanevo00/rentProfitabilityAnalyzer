@@ -10,6 +10,7 @@ import realEstateLink from './realEstateLink'
 import date from './scalars/date'
 import county from './county'
 import district from './district'
+import userActivation from './userActivation'
 
 export default merge(
   date,
@@ -20,6 +21,7 @@ export default merge(
   flat,
   rent,
   user,
+  userActivation,
   auction,
   realEstateWebsite,
   realEstateLink

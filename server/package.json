@@ -25,6 +25,7 @@
     "graphql-iso-date": "^3.6.1",
     "graphql-tag": "^2.11.0",
     "lodash": "^4.17.19",
-    "mongoose": "^5.9.27"
+    "mongoose": "^5.9.27",
+    "uuid": "^8.3.0"
   }
 }
